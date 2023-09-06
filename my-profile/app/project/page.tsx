@@ -11,9 +11,11 @@ export default function Project() {
             <p className="text-left text-5xl mt-10">Projects</p>
           </div>
           <div className="flex flex-wrap w-screen mt-10">
-            {Array(4).map((index) => (
-              <ProjectCard key={index} />
-            ))}
+            {Array(4)
+              .fill(1)
+              .map((index) => (
+                <ProjectCard key={index} />
+              ))}
           </div>
         </div>
       </main>
