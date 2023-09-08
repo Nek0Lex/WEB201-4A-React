@@ -1,0 +1,6 @@
+export { default as javaLogo } from '../images/java.png'
+export { default as kotlinLogo } from '../images/kotlin.png'
+export { default as flutterLogo } from '../images/flutter.png'
+export { default as reactLogo } from '../images/react.png'
+export { default as gitLogo } from '../images/git.png'
+export { default as swiftLogo } from '../images/swift.png'
