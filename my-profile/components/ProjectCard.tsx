@@ -1,6 +1,6 @@
 export default function ProjectCard() {
   return (
-    <div className="max-w-sm rounded overflow-hidden shadow-lg bg-white">
+    <div className="max-w-sm rounded overflow-hidden shadow-lg bg-white mr-5 mb-5">
       {/* <img
                 className="w-full"
                 src="/img/card-top.jpg"

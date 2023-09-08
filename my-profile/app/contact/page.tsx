@@ -23,7 +23,7 @@ export default function Contact() {
             <br></br>
 
             {/* form */}
-            <form className="shadow-md rounded pt-6 pb-8 mb-4">
+            <form className="shadow-md rounded pt-4 pb-8 mb-4 w-1/2">
               <div className="mb-4">
                 <label
                   className="block text-white text-sm font-bold mb-2"
@@ -33,21 +33,21 @@ export default function Contact() {
                 </label>
                 <input
                   className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                  id="username"
+                  id="email"
                   type="text"
                   placeholder="email"
                 />
               </div>
               <div className="mb-6">
-                <label className="block text-gray-700 text-sm font-bold mb-2">
-                  Password
+                <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                  Your message to me
                 </label>
-                <input
-                  className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
-                  id="password"
-                  type="text"
-                  placeholder="somthing u want to say to me"
-                />
+                <textarea
+                  id="message"
+                  rows={3}
+                  className="block p-2.5 w-full text-sm text-gray-900 bg-white rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                  placeholder="Write your thoughts here..."
+                ></textarea>
                 {/* <p className="text-red-500 text-xs italic">
                   Please choose a password.
                 </p> */}
