@@ -1,17 +1,17 @@
-'use client';
 import categories from "../model/categories"
-import { useState, useId, FormEvent } from 'react'
 import { Task } from "../model/Task"
 import { useForm, SubmitHandler } from "react-hook-form"
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
 
 const validationSchema = z.object({
-    title: z.string().min(3, { message: 'Required' }).max(30),
+    title: z.string().min(3, { message: 'Minium character is 3' }).max(30),
+    dueDate: z.date(),
+    category: z.string(),
 });
 
 
-export default function TaskForm() {
+export default function TaskForm({ onUpdateForm }: any) {
     const {
         register,
         handleSubmit,
@@ -21,36 +21,36 @@ export default function TaskForm() {
         defaultValues: {
             title: "",
             dueDate: Date.now(),
-            category: categories[0],
+            category: categories[0].toString(),
         },
         resolver: zodResolver(validationSchema),
     })
 
     const onSubmit: SubmitHandler<Task> = (data) => {
-        console.log(data);
+        onUpdateForm(data)
     }
 
     return (
         <div >
             <form className="w-full max-w-lg" method="post" onSubmit={handleSubmit(onSubmit)}>
                 <div className="px-3 mb-6 md:mb-0 pt-5">
-                    <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" >
+                    <label className="block  tracking-wide text-gray-700 text-xs font-bold mb-2" >
                         Title
                     </label>
                     <input type="text" {...register("title")} className="appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="title" placeholder="title" />
-                    { }
+                    {errors.title?.message && <p className="text-red-600">{errors.title?.message}</p>}
                 </div>
                 <div className="px-3 mb-6 md:mb-0 pt-5">
-                    <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
+                    <label className="block tracking-wide text-gray-700 text-xs font-bold mb-2">
                         Due Date
                     </label>
-                    <input type="date" {...register("dueDate")} className="appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="dueDate" placeholder="Jane" />
+                    <input type="date" {...register("dueDate", { valueAsDate: true })} className="appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="dueDate" />
                 </div>
                 <div className="px-3 mb-6 md:mb-0 pt-5">
-                    <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
+                    <label className="block  tracking-wide text-gray-700 text-xs font-bold mb-2">
                         Category
                     </label>
-                    <select {...register("category")} className="appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="category" placeholder="Jane" defaultValue={categories[0]}>
+                    <select {...register("category", { required: true })} className="appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="category" placeholder="Jane" defaultValue={categories[0]}>
                         {categories.map((c) => <option key={c} value={c} >{c}</option>)}
                     </select>
                 </div>
