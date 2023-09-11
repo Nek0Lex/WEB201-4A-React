@@ -32,6 +32,7 @@ export default function TaskForm(props: {
   });
 
   const onSubmit: SubmitHandler<Task> = (data) => {
+    data.dueDate = new Date().setHours(24);
     data.id = props.taskList.length + 1;
     props.onUpdateForm(data);
   };
