@@ -5,7 +5,7 @@ import { useForm, SubmitHandler } from "react-hook-form";
 import * as z from "zod";
 import filterType from "../model/filterType";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { Filter } from "../model/filter";
+import { Filter } from "../model/Filter";
 
 const schema = z.object({
   type: z.string(),
