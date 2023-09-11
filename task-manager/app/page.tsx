@@ -6,7 +6,7 @@ import { Task } from "./model/Task";
 import TaskList from "./components/TaskList";
 import TaskFilter from "./components/TaskFilter";
 import filterType from "./model/filterType";
-import { Filter } from "./model/filter";
+import { Filter } from "./model/Filter";
 import { type } from "os";
 
 export default function Home() {
