@@ -1,4 +1,4 @@
-import React, { createContext, SetStateAction, useState, Dispatch } from 'react';
+import React, { SetStateAction, Dispatch } from 'react';
 
 interface DefaultContext {
   markdownText: string;

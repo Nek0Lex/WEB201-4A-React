@@ -14,14 +14,6 @@ const AppContainer = styled.div`
   align-items: center;
 `;
 
-const Title = styled.div`
-  font-size: 25px;
-  font-weight: 700;
-  font-family: "Lato", sans-serif;
-  margin-bottom: 1em;
-  margin-top: 1em;
-`;
-
 const EditorContainer = styled.div`
   width: 100%;
   height: 100%;
