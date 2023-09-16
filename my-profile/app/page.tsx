@@ -24,7 +24,6 @@ export default function Home() {
             </p>
             <br />
             <p>This web build with:</p>
-            <br />
             <div className="flex flex-row h-40">
               <Image
                 src={nextJspPic}
